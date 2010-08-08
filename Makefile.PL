@@ -7,7 +7,7 @@ requires 'DateTime';
 requires 'DateTime::Format::Strptime';
 requires 'DateTime::Util::DayOfWeek';
 requires 'DateTime::Event::Recurrence';
-
+requires 'Test::More' => 0.88; # done_testing, subtest
 
 readme_markdown_from 'lib/Holsten/Util/DateTime.pm';
 tests 't/*.t t/*/*.t t/*/*/*.t t/*/*/*/*.t';
