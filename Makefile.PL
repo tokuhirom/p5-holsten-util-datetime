@@ -2,7 +2,11 @@ use inc::Module::Install;
 name 'Holsten-Util-DateTime';
 all_from 'lib/Holsten/Util/DateTime.pm';
 
-# requires '';
+requires 'perl5i::2';
+requires 'DateTime';
+requires 'DateTime::Format::Strptime';
+requires 'DateTime::Util::DayOfWeek';
+requires 'DateTime::Event::Recurrence';
 
 
 readme_markdown_from 'lib/Holsten/Util/DateTime.pm';
