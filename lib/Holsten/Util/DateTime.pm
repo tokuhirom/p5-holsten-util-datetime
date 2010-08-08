@@ -7,7 +7,11 @@ use DateTime::Format::Strptime;
 use DateTime::Util::DayOfWeek;
 use DateTime::Event::Recurrence;
 
-our @EXPORT = qw/strptime parse_date parse_datetime make_daily_list/;
+our @EXPORT = qw/strptime parse_date parse_datetime make_daily_list localtoday/;
+
+func localtoday() {
+    return localtime->truncate(to => 'day');
+}
 
 # Usage: strptime('%Y-%m-%d' => '2010-08-08')
 func strptime($pattern, $str) {
@@ -22,6 +26,7 @@ func strptime($pattern, $str) {
         time_zone => $tz,
     );
     my $dt = $strp->parse_datetime($str);
+    return undef if not defined $dt;
     die "invalid date: $dt" if "$dt" eq '0001-01-01T00:00:00';
     return $dt;
 }

@@ -35,4 +35,14 @@ subtest 'make_daily_list' => sub {
     done_testing;
 };
 
+subtest 'localtoday' => sub {
+    my $today = localtoday();
+    isa_ok $today, 'DateTime';
+    is $today, localtime()->truncate(to => 'day');
+    is $today->hour, 0;
+    is $today->minute, 0;
+    is $today->second, 0;
+    done_testing;
+};
+
 done_testing;
